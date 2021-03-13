@@ -33,12 +33,13 @@ app.post('/update',async (req,res)=>{
     
     let nameInput = req.body.productName;
     let priceInput = req.body.price;
+    let amountInput = req.body.amount
     let idInput = req.body.pid;
 
     var ObjectID = require('mongodb').ObjectID;
     let condition = {"_id":ObjectID(idInput)};  
 
-    let updateProduct ={$set : {productName : nameInput, price:priceInput}} ;
+    let updateProduct ={$set : {productName : nameInput, price:priceInput, amount:amountInput}} ;
     await dbo.collection("products").updateOne(condition,updateProduct);
     res.redirect('/');
 })
@@ -78,8 +79,8 @@ app.post('/insert',async (req,res)=>{
     let client= await MongoClient.connect(url);
     let dbo = client.db("MyDatabase");
     let nameInput = req.body.productName;
-    let priceInput = req.body.price;
-    let newProduct = {productName : nameInput, price:priceInput};
+    let amountInput = req.body.amount
+    let newProduct = {productName : nameInput, price:priceInput, amount:amountInput};
     await dbo.collection("products").insertOne(newProduct);
    
     let results = await dbo.collection("products").find({}).toArray();
