@@ -71,6 +71,18 @@ app.post('/search',async (req,res)=>{
     let dbo = client.db("MyDatabase");
     let results = await dbo.collection("products").
         find({productName: new RegExp(searchText,'i')}).toArray();
+    var n = searchText.length; 
+    var a = searchText.charAt(n-1);
+    a != 1;
+    a != 2;
+    a != 3;
+    a != 4;
+    a != 5;    
+    a != 6;
+    a != 7;
+    a != 8;
+    a != 9;
+    a != 0;
         
     res.render('home',{model:results})
 })
