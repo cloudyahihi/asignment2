@@ -22,6 +22,7 @@
         <h1>ATN TOY STORE</h1>
     </div>
     <a href="/new">New Product</a>
+    <div align = "center">
     <form action="/search" method="post">
         Prodcut's name to search <input type="text" name="txtSearch">
         <input type="submit" value="Search">
@@ -32,16 +33,19 @@
             <td>Price</td>
             <td>Amount</td>
             <td>Delete</td>
+            <td>Update</td>
         </tr>
         {{#each model}}
         <tr>
-            <td><a href="edit?pid={{_id}}">{{productName}}</a></td>
+            <td>{{productName}}</td>
             <td>{{price}}</td>
             <td>{{amount}}</td>
             <td><a href="/delete?pid={{_id}}">Delete</a></td>
+            <td><a href="edit?pid={{_id}}">Update</a></td>
         </tr>
         {{/each}}
     </table>
+    </div>
     <div class="bottom" align="center">
         <p>Vietnam toy store</p>
     </div>
