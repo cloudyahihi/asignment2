@@ -75,7 +75,7 @@ app.post('/search',async (req,res)=>{
     var a = searchText.charAt(n-1);
     if (a>= 0 && a<= 9)
     {
-        res.render('home')
+        res.render('error',{model:results})
     }else{
         res.render('home',{model:results})
     }
