@@ -73,7 +73,10 @@ app.post('/search',async (req,res)=>{
         find({productName: new RegExp(searchText,'i')}).toArray();
     var n = searchText.length; 
     var a = searchText.charAt(n-1);
-    if (a>0 && a < 1000)
+    if (a>0)
+    {
+        System.out.print("error")
+    }else if(a < 1000)
     {
         System.out.print("error")
     }else{
