@@ -73,7 +73,10 @@ app.post('/search',async (req,res)=>{
         find({productName: new RegExp(searchText,'i')}).toArray();
     var n = searchText.length; 
     var a = searchText.charAt(n-1);
-    a != 1;
+    if (a != 1)
+    {
+        res.render('home',{model:results})
+    }
     a != 2;
     a != 3;
     a != 4;
@@ -83,8 +86,6 @@ app.post('/search',async (req,res)=>{
     a != 8;
     a != 9;
     a != 0;
-        
-    res.render('home',{model:results})
 })
 app.post('/insert',async (req,res)=>{
     let client= await MongoClient.connect(url);
